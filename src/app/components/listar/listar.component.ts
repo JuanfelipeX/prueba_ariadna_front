@@ -1,8 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { ProductosService } from 'src/app/services/productos/productos.service';
-import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-
+import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 @Component({
   selector: 'app-listar',
   templateUrl: './listar.component.html',
@@ -13,9 +12,10 @@ export class ListarComponent implements OnInit {
   lista_productos: any[] = [];
   formulario_productos: any[] = [];
   editar_productos: any;
-  
   productoSeleccionado: any;
-  @ViewChild('modalEditar') modalEditar: any;
+
+  @ViewChild('modalEditar', { static: false }) modalEditar: any;
+  modalRef: NgbModalRef | undefined;
 
 
   constructor(
@@ -81,7 +81,8 @@ export class ListarComponent implements OnInit {
  * **********************************************
  * */
   editarProductos(element: any) {
-    this.productoService.editarProductos(this.editar_productos, element.id).subscribe({
+    console.log(this.productoSeleccionado);
+    this.productoService.editarProductos(this.productoSeleccionado, element.id).subscribe({
       next: (data) => {
         this.abrirModal(element);
       },
@@ -109,13 +110,8 @@ export class ListarComponent implements OnInit {
 
   abrirModalEditar(producto: any) {
     this.productoSeleccionado = producto;
-    this.modalService.open(this.modalEditar, { ariaLabelledBy: 'modalEditar' }).result.then((result) => {
-      // Acciones al cerrar el modal si es necesario
-    }, (reason) => {
-      // Acciones al cancelar o cerrar el modal si es necesario
-    });
+    this.modalRef = this.modalService.open(this.modalEditar, { ariaLabelledBy: 'modalEditar' });
   }
-
   
   abrirModal(element: any) {
     const modalRef = this.modalService.open(element, { centered: true });
@@ -123,6 +119,8 @@ export class ListarComponent implements OnInit {
   }
 
   guardarCambios() {
+    // console.log(this.productoSeleccionado);
+    this.editarProductos(this.productoSeleccionado);
     // Lógica para guardar los cambios en el modal
   }
 
