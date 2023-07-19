@@ -10,10 +10,8 @@ import { ProductosService } from 'src/app/services/productos/productos.service';
 export class GeneralComponent implements OnInit {
 
   lista_productos: any[] = [];
-  lista_productos_id: any;
   formulario_productos: any[] = [];
   editar_productos: any;
-  elimnar_productos: any;
 
   constructor(
     private productoService: ProductosService,
@@ -40,14 +38,14 @@ export class GeneralComponent implements OnInit {
     });
   }
 
-  
+
   /*
   ************************************************
   *           Obtener Productos ID               *
   * **********************************************
   * */
-  obtenerProductosId() {
-    this.productoService.obtenerProductosId(this.lista_productos_id.id).subscribe({
+  obtenerProductosId(element: any) {
+    this.productoService.obtenerProductosId(element.id).subscribe({
       next: (data) => {
         this.lista_productos = data;
       },
@@ -72,13 +70,13 @@ export class GeneralComponent implements OnInit {
     });
   }
 
-   /*
-  ************************************************
-  *              Editar Productos               *
-  * **********************************************
-  * */
-  editarProductos() {
-    this.productoService.editarProductos(this.editar_productos, this.editar_productos.id).subscribe({
+  /*
+ ************************************************
+ *              Editar Productos               *
+ * **********************************************
+ * */
+  editarProductos(element: any) {
+    this.productoService.editarProductos(this.editar_productos, element.id).subscribe({
       next: (data) => {
       },
       error: (err) => {
@@ -87,14 +85,15 @@ export class GeneralComponent implements OnInit {
     });
   }
 
-     /*
-  ************************************************
-  *             Eliminar Productos               *
-  * **********************************************
-  * */
-  eliminarProductos() {
-    this.productoService.eliminarProductos(this.elimnar_productos.id).subscribe({
+  /*
+************************************************
+*             Eliminar Productos               *
+* **********************************************
+* */
+  eliminarProductos(element: any) {
+    this.productoService.eliminarProductos(element.id).subscribe({
       next: (data) => {
+        this.obtenerProductos();
       },
       error: (err) => {
         console.log("Error: " + err)

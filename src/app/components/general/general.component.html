@@ -1,5 +1,6 @@
 <div class="container">
   <h1 class="text-center">Market Place</h1>
+
   <div class="row justify-content-center mt-4">
     <div class="col-md-6">
       <div class="row">
@@ -12,12 +13,15 @@
       </div>
     </div>
   </div>
-  
+
   <div class="row justify-content-center mt-4">
     <div class="col-md-6">
-      <img class="img-fluid" src="https://cdn.create.vista.com/api/media/small/206344132/stock-photo-beautiful-fashionable-woman-vintage-elegant" alt="">
+      <img class="img-fluid"
+        src="https://cdn.create.vista.com/api/media/small/206344132/stock-photo-beautiful-fashionable-woman-vintage-elegant"
+        alt="">
     </div>
   </div>
+
   <div class="row justify-content-center mt-4">
     <div class="col-md-8">
       <table class="table table-striped">
@@ -26,6 +30,7 @@
             <th>ID</th>
             <th>Categoria</th>
             <th>Descripcion</th>
+            <th>Acciones</th>
           </tr>
         </thead>
         <tbody>
@@ -33,11 +38,18 @@
             <td>{{ element.id }}</td>
             <td>{{ element.categoria_id }}</td>
             <td>{{ element.nombre }}</td>
+            <td>
+              <button class="btn btn-primary" (click)="editarProductos(element)">Modificar</button>
+              <button class="btn btn-danger" (click)="eliminarProductos(element)">Eliminar</button>
+            </td>
+
+
           </tr>
         </tbody>
       </table>
     </div>
   </div>
+
   <div class="row justify-content-center mt-4">
     <div class="col-md-8">
       <table class="table">
@@ -52,11 +64,13 @@
       </table>
     </div>
   </div>
+
   <div class="row justify-content-center mt-4">
     <div class="col-md-6">
       <button class="btn btn-primary">What's on sale</button>
     </div>
   </div>
+
   <div class="row justify-content-center mt-4">
     <div class="col-md-6">
       <p>Terms and Conditions</p>
