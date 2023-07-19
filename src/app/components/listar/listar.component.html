@@ -1,79 +1,64 @@
-<div class="container">
-    <h1 class="text-center">Market Place</h1>
+<div style="width: 375px; height: 68px; position: relative">
+    <div style="width: 375px; height: 68px; position: absolute"></div>
+    <div
+        style="width: 284px; height: 41px; left: 46px; top: 14px; position: absolute; text-align: center; color: #242424; font-size: 36px; font-family: Cormorant; font-weight: 500; word-wrap: break-word">
+        Market Place</div>
+</div>
 
-    <div class="row justify-content-center mt-4">
-        <div class="col-md-6">
-            <div class="row">
-                <div class="col-md-8">
-                    <h4>Shop the new collection here first</h4>
-                </div>
-                <div class="col-md-4">
-                    <button class="btn btn-primary">Shop Now</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="row justify-content-center mt-4">
-        <div class="col-md-6">
-            <img class="img-fluid"
-                src="https://cdn.create.vista.com/api/media/small/206344132/stock-photo-beautiful-fashionable-woman-vintage-elegant"
-                alt="">
-        </div>
-    </div>
-
-    <div class="row justify-content-center mt-4">
-        <div class="col-md-8">
-            <table class="table table-striped">
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Categoria</th>
-                        <th>Descripcion</th>
-                        <th>Acciones</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr *ngFor="let element of lista_productos">
-                        <td>{{ element.id }}</td>
-                        <td>{{ element.categoria_id }}</td>
-                        <td>{{ element.nombre }}</td>
-                        <td>
-                            <button class="btn btn-primary" (click)="editarProductos(element)">Modificar</button>
-                            <button class="btn btn-danger" (click)="eliminarProductos(element)">Eliminar</button>
-                        </td>
-
-
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </div>
-
-    <div class="row justify-content-center mt-4">
-        <div class="col-md-8">
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th>Pestaña 1</th>
-                        <th>Pestaña 2</th>
-                        <th>Pestaña 3</th>
-                        <th>Pestaña 4</th>
-                    </tr>
-                </thead>
-            </table>
-        </div>
-    </div>
-
-    <div class="row justify-content-center mt-4">
-        <div class="col-md-6">
-            <button class="btn btn-primary">What's on sale</button>
-        </div>
-    </div>
-
-    <div class="row justify-content-center mt-4">
-        <div class="col-md-6">
-            <p>Terms and Conditions</p>
+<div style="width: 376px; height: 56px; position: relative">
+    <div style="width: 376px; height: 56px; position: absolute; background: #333333"></div>
+    <div
+        style="left: 20px; top: 18px; position: absolute; color: white; font-size: 14px; font-family: Cormorant; font-weight: 700; word-wrap: break-word">
+        Shop the new collection here first</div>
+    <div
+        style="width: 121px; height: 31px; padding: 3px 30px 10px; left: 237px; top: 11px; position: absolute; border: 0.50px white solid; display: inline-flex; justify-content: center; align-items: center; gap: 10px;">
+        <div>
+            <span
+                style="color: white; font-size: 18px; font-family: Cormorant; font-style: italic; font-weight: 700; word-wrap: break-word">Shop</span>
+            <span
+                style="color: white; font-size: 18px; font-family: Cormorant; font-weight: 700; word-wrap: break-word"></span>
+            <span
+                style="color: white; font-size: 18px; font-family: Cormorant; font-weight: 400; word-wrap: break-word">Now</span>
         </div>
     </div>
 </div>
+
+<div
+    style="width: 375px; height: 270.94px; position: relative; background-image: url(https://cdn.create.vista.com/api/media/small/206344132/stock-photo-beautiful-fashionable-woman-vintage-elegant)">
+    <div
+        style="width: 375px; height: 270.94px; left: 0px; top: 0px; position: absolute; background: rgba(191, 212, 228, 0)">
+    </div>
+</div>
+
+<div style="width: 374px; height: 46px; background: #333333"></div>
+
+<div style="width: 373px; height: 50px; position: relative">
+
+
+    <div class="col-md-8">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th class="">ID</th>
+                    <th>Categoria</th>
+                    <th>Descripcion</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let element of lista_productos">
+                    <td>{{ element.id }}</td>
+                    <td>{{ element.categoria_id }}</td>
+                    <td>{{ element.nombre }}</td>
+                    <td>
+                        <button class="btn btn-primary" (click)="editarProductos(element)">Modificar</button>
+                        <button class="btn btn-danger" (click)="eliminarProductos(element)">Eliminar</button>
+                    </td>
+
+
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
