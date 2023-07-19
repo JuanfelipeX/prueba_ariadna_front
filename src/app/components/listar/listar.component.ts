@@ -3,11 +3,11 @@ import { Router } from '@angular/router';
 import { ProductosService } from 'src/app/services/productos/productos.service';
 
 @Component({
-  selector: 'app-general',
-  templateUrl: './general.component.html',
-  styleUrls: ['./general.component.css']
+  selector: 'app-listar',
+  templateUrl: './listar.component.html',
+  styleUrls: ['./listar.component.css']
 })
-export class GeneralComponent implements OnInit {
+export class ListarComponent implements OnInit {
 
   lista_productos: any[] = [];
   formulario_productos: any[] = [];
@@ -100,4 +100,5 @@ export class GeneralComponent implements OnInit {
       },
     });
   }
+
 }

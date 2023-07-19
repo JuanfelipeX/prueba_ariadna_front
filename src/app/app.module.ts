@@ -9,7 +9,8 @@ import { ErrorNoEncontradoComponent } from './components/error-no-encontrado/err
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { UsuariosComponent } from './components/usuarios/usuarios.component';
-import { GeneralComponent } from './components/general/general.component';
+import { CrearComponent } from './components/crear/crear.component';
+import { ListarComponent } from './components/listar/listar.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { GeneralComponent } from './components/general/general.component';
     IniciarSesionComponent,
     ErrorNoEncontradoComponent,
     UsuariosComponent,
-    GeneralComponent,
+    CrearComponent,
+    ListarComponent,
   ],
   imports: [
     BrowserModule,
