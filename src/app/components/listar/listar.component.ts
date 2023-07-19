@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { ProductosService } from 'src/app/services/productos/productos.service';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
@@ -13,6 +13,10 @@ export class ListarComponent implements OnInit {
   lista_productos: any[] = [];
   formulario_productos: any[] = [];
   editar_productos: any;
+  
+  productoSeleccionado: any;
+  @ViewChild('modalEditar') modalEditar: any;
+
 
   constructor(
     private productoService: ProductosService,
@@ -103,6 +107,16 @@ export class ListarComponent implements OnInit {
     });
   }
 
+  abrirModalEditar(producto: any) {
+    this.productoSeleccionado = producto;
+    this.modalService.open(this.modalEditar, { ariaLabelledBy: 'modalEditar' }).result.then((result) => {
+      // Acciones al cerrar el modal si es necesario
+    }, (reason) => {
+      // Acciones al cancelar o cerrar el modal si es necesario
+    });
+  }
+
+  
   abrirModal(element: any) {
     const modalRef = this.modalService.open(element, { centered: true });
     // Aquí puedes realizar las acciones necesarias al abrir el modal
