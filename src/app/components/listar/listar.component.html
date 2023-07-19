@@ -1,64 +1,65 @@
 <div style="width: 375px; height: 68px; position: relative">
     <div style="width: 375px; height: 68px; position: absolute"></div>
-    <div
-        style="width: 284px; height: 41px; left: 46px; top: 14px; position: absolute; text-align: center; color: #242424; font-size: 36px; font-family: Cormorant; font-weight: 500; word-wrap: break-word">
-        Market Place</div>
-</div>
-
-<div style="width: 376px; height: 56px; position: relative">
+    <div style="width: 284px; height: 41px; left: 46px; top: 14px; position: absolute; text-align: center; color: #242424; font-size: 36px; font-family: Cormorant; font-weight: 500; word-wrap: break-word">Market Place</div>
+  </div>
+  
+  <div style="width: 376px; height: 56px; position: relative">
     <div style="width: 376px; height: 56px; position: absolute; background: #333333"></div>
-    <div
-        style="left: 20px; top: 18px; position: absolute; color: white; font-size: 14px; font-family: Cormorant; font-weight: 700; word-wrap: break-word">
-        Shop the new collection here first</div>
-    <div
-        style="width: 121px; height: 31px; padding: 3px 30px 10px; left: 237px; top: 11px; position: absolute; border: 0.50px white solid; display: inline-flex; justify-content: center; align-items: center; gap: 10px;">
-        <div>
-            <span
-                style="color: white; font-size: 18px; font-family: Cormorant; font-style: italic; font-weight: 700; word-wrap: break-word">Shop</span>
-            <span
-                style="color: white; font-size: 18px; font-family: Cormorant; font-weight: 700; word-wrap: break-word"></span>
-            <span
-                style="color: white; font-size: 18px; font-family: Cormorant; font-weight: 400; word-wrap: break-word">Now</span>
-        </div>
+    <div style="left: 20px; top: 18px; position: absolute; color: white; font-size: 14px; font-family: Cormorant; font-weight: 700; word-wrap: break-word">Shop the new collection here first</div>
+    <div style="width: 121px; height: 31px; padding: 3px 30px 10px; left: 237px; top: 11px; position: absolute; border: 0.50px white solid; display: inline-flex; justify-content: center; align-items: center; gap: 10px;">
+      <div>
+        <span style="color: white; font-size: 18px; font-family: Cormorant; font-style: italic; font-weight: 700; word-wrap: break-word">Shop</span>
+        <span style="color: white; font-size: 18px; font-family: Cormorant; font-weight: 700; word-wrap: break-word"></span>
+        <span style="color: white; font-size: 18px; font-family: Cormorant; font-weight: 400; word-wrap: break-word">Now</span>
+      </div>
     </div>
-</div>
-
-<div
-    style="width: 375px; height: 270.94px; position: relative; background-image: url(https://cdn.create.vista.com/api/media/small/206344132/stock-photo-beautiful-fashionable-woman-vintage-elegant)">
-    <div
-        style="width: 375px; height: 270.94px; left: 0px; top: 0px; position: absolute; background: rgba(191, 212, 228, 0)">
-    </div>
-</div>
-
-<div style="width: 374px; height: 46px; background: #333333"></div>
-
-<div style="width: 373px; height: 50px; position: relative">
-
-
+  </div>
+  
+  <div style="width: 375px; height: 270.94px; position: relative; background-image: url(https://cdn.create.vista.com/api/media/small/206344132/stock-photo-beautiful-fashionable-woman-vintage-elegant)">
+    <div style="width: 375px; height: 270.94px; left: 0px; top: 0px; position: absolute; background: rgba(191, 212, 228, 0)"></div>
+  </div>
+  
+  <div style="width: 374px; height: 46px; background: #333333"></div>
+  
+  <div class="row justify-content-center mt-4">
     <div class="col-md-8">
-        <table class="table table-striped">
-            <thead>
-                <tr>
-                    <th class="">ID</th>
-                    <th>Categoria</th>
-                    <th>Descripcion</th>
-                    <th>Acciones</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor="let element of lista_productos">
-                    <td>{{ element.id }}</td>
-                    <td>{{ element.categoria_id }}</td>
-                    <td>{{ element.nombre }}</td>
-                    <td>
-                        <button class="btn btn-primary" (click)="editarProductos(element)">Modificar</button>
-                        <button class="btn btn-danger" (click)="eliminarProductos(element)">Eliminar</button>
-                    </td>
-
-
-                </tr>
-            </tbody>
-        </table>
+      <table class="table table-striped mt-4">
+        <thead>
+          <tr>
+            <th class="">ID</th>
+            <th>Categoria</th>
+            <th>Descripcion</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let element of lista_productos">
+            <td>{{ element.id }}</td>
+            <td>{{ element.categoria_id }}</td>
+            <td>{{ element.nombre }}</td>
+            <td>
+              <button class="btn btn-primary" (click)="abrirModal(modalEditar)">Modificar</button>
+              <button class="btn btn-danger" (click)="eliminarProductos(element)">Eliminar</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
     </div>
-</div>
-
+  </div>
+  
+  <ng-template #modalEditar let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title">Editar Producto</h4>
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <!-- Aquí puedes agregar el contenido del formulario de edición -->
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" (click)="modal.dismiss('Cancelar')">Cancelar</button>
+      <button type="button" class="btn btn-primary" (click)="guardarCambios()">Guardar</button>
+    </div>
+  </ng-template>
+  

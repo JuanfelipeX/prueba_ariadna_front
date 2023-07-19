@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ProductosService } from 'src/app/services/productos/productos.service';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-listar',
@@ -15,7 +16,8 @@ export class ListarComponent implements OnInit {
 
   constructor(
     private productoService: ProductosService,
-    private router: Router
+    private router: Router,
+    private modalService: NgbModal
   ) { }
 
   ngOnInit(): void {
@@ -37,7 +39,6 @@ export class ListarComponent implements OnInit {
       },
     });
   }
-
 
   /*
   ************************************************
@@ -78,6 +79,7 @@ export class ListarComponent implements OnInit {
   editarProductos(element: any) {
     this.productoService.editarProductos(this.editar_productos, element.id).subscribe({
       next: (data) => {
+        this.abrirModal(element);
       },
       error: (err) => {
         console.log("Error: " + err)
@@ -99,6 +101,15 @@ export class ListarComponent implements OnInit {
         console.log("Error: " + err)
       },
     });
+  }
+
+  abrirModal(element: any) {
+    const modalRef = this.modalService.open(element, { centered: true });
+    // Aquí puedes realizar las acciones necesarias al abrir el modal
+  }
+
+  guardarCambios() {
+    // Lógica para guardar los cambios en el modal
   }
 
 }
